@@ -6,6 +6,7 @@
 .pnp.js
 
 # added the following, are these needed?
+# See https://yarnpkg.com/features/pnp
 .pnp.cjs
 .pnp.loader.mjs
 .yarn/
