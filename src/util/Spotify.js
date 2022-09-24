@@ -34,6 +34,11 @@ const Spotify = {
         // if this is the case, then check if accessToken and expiresIn info is in window and get the info
 
 		// FOLLOWING CODE NEEDS TESTING
+	
+	// Grabs the access_token and expires_in properties from current window href if there
+        const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
+        const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+
         if (accessTokenMatch && expiresInMatch){
             accessToken = accessTokenMatch[1];
             const expiresIn = Number(expiresInMatch[1]);
