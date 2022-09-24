@@ -36,15 +36,15 @@ const Spotify = {
 		// FOLLOWING CODE NEEDS TESTING
 	
 	// Grabs the access_token and expires_in properties from current window href if there
-        const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
-        const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+        const accessTokenMatch2 = window.location.href.match(/access_token=([^&]*)/);
+        const expiresInMatch2 = window.location.href.match(/expires_in=([^&]*)/);
 
-        if (accessTokenMatch && expiresInMatch){
-            accessToken = accessTokenMatch[1];
-            const expiresIn = Number(expiresInMatch[1]);
+        if (accessTokenMatch2 && expiresInMatch2){
+            accessToken = accessTokenMatch2[1];
+            const expiresIn2 = Number(expiresInMatch2[1]);
 
             // This clears the parameters, allowing us to grab a new access token when it expires.
-            window.setTimeout(() => accessToken = '', expiresIn * 1000);
+            window.setTimeout(() => accessToken = '', expiresIn2 * 1000);
             window.history.pushState('Access Token', null,'/');
             return accessToken;} 
  

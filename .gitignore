@@ -33,3 +33,7 @@ yarn-error.log*
 
 # scripts
 *.sh
+
+# files that are being worked on in Vim
+.*.sw*
+*~
