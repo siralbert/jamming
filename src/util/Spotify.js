@@ -20,13 +20,34 @@ const Spotify = {
             // This clears the parameters, allowing us to grab a new access token when it expires.
             window.setTimeout(() => accessToken = '', expiresIn * 1000);
             window.history.pushState('Access Token', null,'/');
-            return accessToken;
-         } else {
+            return accessToken;} 
+        
+	// if there is no access token match, allow user to login to Spotify to get new access token
+	else {
              const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
              window.location = accessUrl;
-         }
+
+	// if user saved his/her login info in browser, seems like spotify embeds the access token, token_type, and expires_in as arguments into the window.location along with the redirectUri
+		//
+		//How do I check if the user is already logged in , or is it even necessary to?
+		//
+        // if this is the case, then check if accessToken and expiresIn info is in window and get the info
+
+		// FOLLOWING CODE NEEDS TESTING
+        if (accessTokenMatch && expiresInMatch){
+            accessToken = accessTokenMatch[1];
+            const expiresIn = Number(expiresInMatch[1]);
+
+            // This clears the parameters, allowing us to grab a new access token when it expires.
+            window.setTimeout(() => accessToken = '', expiresIn * 1000);
+            window.history.pushState('Access Token', null,'/');
+            return accessToken;} 
+ 
+
+	}
     },
 
+    // Send the search term in the SearchBar to Spotify to get a list of relevant tracks.
     search (term){
         const accessToken = Spotify.getAccessToken();
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, { headers: {

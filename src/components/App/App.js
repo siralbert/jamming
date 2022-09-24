@@ -13,16 +13,16 @@ class App extends React.Component {
     super(props);
 
 // DEBUGGING CODE:
-    console.log('DEBUGGING');
-    if (process.env.NODE_ENV !== 'debugging') {
-	console.log('spotify will use the following local dev host name');
-        console.log(window.location.href);
+//    console.log('DEBUGGING');
+//    if (process.env.NODE_ENV !== 'debugging') {
+//	console.log('spotify will use the following local dev host name');
+//        console.log(window.location.href);
 	   // var ip = require("ip");
 //	console.dir ( ip.address() );
-    }
-    else{
-        console.log('spotify will use production https domain name');
-    }
+//    }
+//    else{
+//        console.log('spotify will use production https domain name');
+//    }
 
     this.state = {
       searchResults: [],
